@@ -1,0 +1,22 @@
+Binary Tree Inorder Traversal - Leetcode 94
+
+**************************************************************************************************************************************************************************************************
+
+class Solution {
+
+    public static void traversal(TreeNode root, List<Integer> result){
+        if(root == null){
+            return;
+        }
+        traversal(root.left,result);
+        result.add(root.val);
+        traversal(root.right,result);
+    }
+
+    public List<Integer> inorderTraversal(TreeNode root) {
+        ArrayList<Integer> result = new ArrayList<>();
+        traversal(root,result);
+        return result;
+        
+    }
+}
