@@ -1,0 +1,22 @@
+Balanced Binary Tree - Leetcode 110
+
+*****************************************************************************************************************************************************************************************************************************************
+class Solution {
+
+    public int traversal(TreeNode root) {
+
+        if(root==null) return 0;
+        int lHeight = traversal(root.left);
+        if(lHeight==-1) return -1;
+        int rHeight = traversal(root.right);
+        if(rHeight==-1) return -1;
+        
+        if(Math.abs(lHeight-rHeight)>1) return -1;
+        
+        return Math.max(lHeight,rHeight) + 1;
+    }
+    public boolean isBalanced(TreeNode root){
+        return traversal(root) != -1;
+    }
+    
+}
