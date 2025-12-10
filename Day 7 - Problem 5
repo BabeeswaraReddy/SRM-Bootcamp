@@ -1,0 +1,22 @@
+Binary tree Postorder Traversal - Leetcode 145
+
+*********************************************************************************************************************************************************************************************************************************
+
+class Solution {
+
+    public static void traversal(TreeNode root, List<Integer> result){
+        if(root == null){
+            return;
+        }
+        traversal(root.left,result);
+        traversal(root.right,result);
+        result.add(root.val);
+    }
+
+    public List<Integer> postorderTraversal(TreeNode root) {
+        ArrayList<Integer> result = new ArrayList<>();
+        traversal(root,result);
+        return result;
+        
+    }
+}
