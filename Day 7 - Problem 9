@@ -1,0 +1,19 @@
+Diameter of Binary Tree - Leetcode 543
+
+===================================================================================================================================================================================================================================
+class Solution {
+    int maxlength=0;
+    public int depth(TreeNode root){
+        if(root==null) return 0;
+        int leftlength=depth(root.left);
+        int rightlength=depth(root.right);
+        maxlength=Math.max(maxlength, leftlength+rightlength);
+        return Math.max(leftlength,rightlength)+1;
+
+    }
+    public int diameterOfBinaryTree(TreeNode root) {
+        depth(root);
+        return maxlength;
+        
+    }
+}
